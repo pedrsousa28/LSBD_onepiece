@@ -27,29 +27,29 @@ def Index():
 @app.route('/', methods=['POST'])
 def create():
     if request.method == 'POST':
-      id = request.form['id']
-      nome = request.form['nome']
+      id = request.form['ID']
+      nome = request.form['name']
       idade = request.form['idade']
       lugar = request.form['lugar']
       descricao = request.form['descricao']
       cursor = mysql.connection.connect()
       cursor.execute("INSERT INTO personagens (nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s)", (nome, idade, lugar, descricao))
       mysql.connection.commit()
-      return redirect(url_for('Index'))
+      return redirect(create.html)
     return ""
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
-   if request.method == 'POST':
-     id = request.form['id']
-     nome = request.form['nome']
+   if request.method == 'POST': 
+     id = request.form['ID']
+     nome = request.form['name']
      idade = request.form['idade']
      lugar = request.form['lugar']
      descricao = request.form['descricao']
      cursor = mysql.connection.cursor()
      cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s", (nome, idade, lugar, descricao,))
      mysql.connection.commit()
-     return redirect (url_for('Index'))
+     return ('edit.html')
    return ""
    
 @app.route('/delete/<string:id>', methods=['GET'])
@@ -60,21 +60,6 @@ def delete(id):
    mysql.connection.commit()
    return redirect (url_for('Index'))
 
-
-@app.route('/edit', methods=['GET', 'POST'])
-def update():
-   if request.method == 'POST':
-      id = request.form['id']
-      nome = request.form['nome']
-      idade = request.form['idade']
-      lugar = request.form['lugar']
-      descricao = request.form['descricao']
-      cursor = mysql.connection.cursor()
-      cursor.execute(" UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s WHERE id=s%", (nome, idade, lugar, descricao))
-      flash("Atualizado") 
-      cursor.close()
-      return (url_for('Index'))
-   return""
 
 
 if __name__ == "__main__":
