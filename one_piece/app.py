@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_mysqldb import MySQL 
 from flask import request
+from jinja2 import Environment, PackageLoader
+env = Environment (loader=PackageLoader('app', 'templates'))
 
 app = Flask (__name__)
 
@@ -18,7 +20,7 @@ def Index():
     cursor.execute("SELECT * FROM personagens")
     data=cursor.fetchall()
     cursor.close()
-    return render_template('index.html',personagens=data)
+    return render_template('index.html')
 
 
 
