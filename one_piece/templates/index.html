@@ -21,7 +21,7 @@
 
     <div class="coluna">
 
-        <h2>Lista de Personagens <button type="button" class="sucesso" pull-right data-toggle="modal" data-target="#myModal">ADD</button></h2>
+        <h2>Lista de Personagens <a href="create.html"><button type="button" class="sucesso">ADD</button></a> </h2>
 
         {%with messages = get_flashed_messages()%}
 
@@ -55,24 +55,7 @@
                             <th>Ação</th>
                         </tr>
 
-                        {% for row in perso %}
-                        <tr>
-
-                            <td>{{row.0}}</td>
-                            <td>{{row.1}}</td>
-                            <td>{{row.2}}</td>
-                            <td>{{row.3}}</td>
-                            <td>{{row.4}}</td>
-
-                            <td>
-
-                                <a href="/edit/{{row.0}}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{row.0}}">Editar</a>
-                                <a href="/delete/{{row.0}}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja Deletar?')">Deletar</a>
-
-                            </td>
-
-                        </tr>
-
+ 
                         <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
 
                             <div class="">
@@ -82,86 +65,6 @@
                                     <div class="">
 
                                         <button type="button" class="close">&times;</button>
-
-                                        <h4 class="modal-title">Atualizar</h4>
-
-                                    </div>
-
-                                    <div class="">
-
-                                        <form action="{{url_for('/')}}" methods = "POST">
-
-                                            <div class="">
-
-                                                <label>ID: </label>
-                                                <input type="number" class="" name="ID" value="{{row.0}}">
-
-                                            </div>
-
-                                             <div class="">
-
-                                                <label>Nome: </label>
-                                                <input type="text" name="id" value="{{row.1}}">
-
-                                                <input type="text" class="" name="name" value="{{row.1}}">
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label>Idade: </label>
-                                                <input type="number" class="form-control" name="idade" value="{{row.2}}">
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label>Lugar: </label>
-                                                <input type="text" class="form-control" name="lugar" value="{{row.3}}">
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label>Descrição: </label>
-
-                                                <textarea name="descricao" class="form-control" cols="30" rows="10" value="{{row.4}}"></textarea>
-
-                                            </div>
-
-                                        </form>
-
-                                    </div>
-
-                                    <div class="r">
-
-                                        <button type="button" class="" data-dismiss="modal">Close</button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        {% endfor %}
-
-                        </tbody>
-
-                     </table>
-
-     </div>
-
-
-
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-
-                </div>
-
-            </div>
 
         </div>
 

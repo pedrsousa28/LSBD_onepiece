@@ -3,65 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Inserir Personagem</title>
 </head>
 <body>
 
-    <div id="" class="" role="dialog">
+<div class="formulario_criação">
 
-        <div class="">
 
-            <div class="">
+    <form>
 
-                <div class="">
+      <div class="titulo">
 
-                    <button type="button" class="close">&times;</button>
+          <h4>Inserir Personagem</h4>
 
-                    <h4 class="">Inserir Personagem</h4>
+      </div>
 
-                </div>
+      <div class="identifica">
 
-                <div class=""> 
+          <label>ID:</label>
+          <input type="number" name="ID">
 
-                    <form method="POST">
+      </div>
 
-                        <div class="">
+      <div class="nome">
 
-                            <label>ID: </label>
-                            <input type="number" class="form-control" name="ID" required="1" >
+          <label>Nome:</label>
+          <input type="text" name="nome">
 
-                        </div>
+      </div>
 
-                        <div class="">
+      <div class="idade">
 
-                            <label>Nome: </label>
-                            <input type="text" class="" name="name" required="1">
+          <label>idade:</label>
+          <input type="number" name="idade">
 
-                        </div>
+      </div>
 
-                        <div class="">
+      <div class="lugar_de_origem">
 
-                            <label>Lugar de Origem: </label>
-                            <input type="text" class="" name="lugar" required="1">
+          <label>Lugar de Origem</label>
+          <input type="text" name="lugar">
 
-                        </div>
+      </div>
 
-                        <div class="">
+      <div class="descricao">
 
-                            <label>Descrição: </label>
-                            <textarea name="descricao" class="" cols="30" rows="10" required="1"></textarea>
+          <label>Descrição:</label>
+          <textarea name="descricao" cols="30" rows="10"></textarea>
 
-                        </div>
+      </div>
 
-                        <div class="">
+      <div class="botão_inserir">
 
-                            <button class="btn btn-primary" type="submit">Inserir</button>
+          <a href="index.html"> <button type="submit">Inserir</button> </a>
 
-                        </div>
+      </div>
 
-                    </form>
+    </form>
 
-                </div>
+</div>
+
+
 
 </body>
 </html>
