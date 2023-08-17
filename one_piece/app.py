@@ -38,7 +38,7 @@ def create():
       return redirect(url_for('Index'))
     return ""
 
-@app.route('/create', methods=['GET', 'POST'])
+@app.route('/edit', methods=['GET', 'POST'])
 def edit():
    if request.method == 'POST':
      id = request.form['id']
