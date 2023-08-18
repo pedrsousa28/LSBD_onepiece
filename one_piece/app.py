@@ -24,7 +24,7 @@ def Index():
 @app.route('/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
-      nome = request.form['name']
+      nome = request.form['nome']
       idade = request.form['idade']
       lugar = request.form['lugar']
       descricao = request.form['descricao']
@@ -34,23 +34,22 @@ def create():
     return render_template('create.html')
     
 
-@app.route('/edit', methods=['GET', 'POST'])
-def edit():
+@app.route('/edit/<nome>', methods=['GET', 'POST'])
+def edit(nome):
    if request.method == 'POST': 
-     nome = request.form['name']
+     nome = request.form['nome']
      idade = request.form['idade']
      lugar = request.form['lugar']
      descricao = request.form['descricao']
      cursor = mysql.connection.cursor()
-     cursor.execute("UPDATE personagens SET id=%s, nome=%s, idade=%s, lugar=%s, descricao=%s", (id, nome, idade, lugar, descricao,))
+     cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s", (nome, idade, lugar, descricao))
      mysql.connection.commit()
    return render_template('edit.html')
    
-@app.route('/delete/<string:id>', methods=['GET'])
-def delete(id):
-   flash("Foi Apagado")
+@app.route('/delete/<nome>', methods=['GET'])
+def delete(nome):
    cursor = mysql.connection.cursor()
-   cursor.execute("DELETE FROM personagens WHERE id=%s", (id,))
+   cursor.execute("DELETE FROM personagens WHERE nome=%s", (nome,))
    mysql.connection.commit()
    return redirect (url_for('Index'))
 
