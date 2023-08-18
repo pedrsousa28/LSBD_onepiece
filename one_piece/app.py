@@ -31,8 +31,8 @@ def create():
       cursor = mysql.connection.cursor()
       cursor.execute("INSERT INTO personagens (id, nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s, %s)", (id, nome, idade, lugar, descricao))
       mysql.connection.commit()
-      return redirect(url_for('create'))
-    return ""
+    return render_template('create.html')
+    
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
@@ -44,8 +44,7 @@ def edit():
      cursor = mysql.connection.cursor()
      cursor.execute("UPDATE personagens SET id=%s, nome=%s, idade=%s, lugar=%s, descricao=%s", (id, nome, idade, lugar, descricao,))
      mysql.connection.commit()
-     return redirect(url_for('edit'))
-   return ""
+   return render_template('edit.html')
    
 @app.route('/delete/<string:id>', methods=['GET'])
 def delete(id):
