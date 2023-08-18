@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONE PIECE</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
 </head>
 <body>
 
@@ -23,7 +24,7 @@
 
         <h2>Lista de Personagens <a href="{{url_for('create')}}"><button type="button" class="su">ADD</button></a></h2>
 
-        {%with messages = get_flashed_messages()%}
+        {%with messages = get_flashed_messages('Personagem Adicionado com Sucesso')%}
 
         {%if messages%}
 

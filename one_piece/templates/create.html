@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inserir Personagem</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='css/create.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css') }}">
+
 </head>
 <body>
 
-<div class="formulario_criacao">
+<div class="table">
 
 
-    <form>
+    <form action="/create" method="POST">
 
       <div class="titulo">
 
@@ -19,7 +20,7 @@
 
       </div>
 
-      <div class="identifica">
+      <div>
 
           <label>ID:</label>
           <input type="number" name="ID">
@@ -56,7 +57,7 @@
 
       <div class="botão_inserir">
 
-          <a href="index.html"> <button type="submit">Inserir</button> </a>
+          <a href="{{url_for('Index')}}"></a><button type="submit">Inserir</button>
 
       </div>
 

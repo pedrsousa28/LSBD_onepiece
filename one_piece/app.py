@@ -29,7 +29,7 @@ def create():
       idade = request.form['idade']
       lugar = request.form['lugar']
       descricao = request.form['descricao']
-      cursor = mysql.connection.connect()
+      cursor = mysql.connection.cursor()
       cursor.execute("INSERT INTO personagens (id, nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s, %s)", (id, nome, idade, lugar, descricao))
       mysql.connection.commit()
       return redirect(url_for('create'))
@@ -51,7 +51,7 @@ def edit():
    
 @app.route('/delete/<string:id>', methods=['GET'])
 def delete(id):
-   flash("")
+   flash("Foi Apagado")
    cursor = mysql.connection.cursor()
    cursor.execute("DELETE FROM personagens WHERE id=%s", (id,))
    mysql.connection.commit()
