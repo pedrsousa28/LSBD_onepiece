@@ -17,44 +17,37 @@
   
         </div>
   
-        <div class="identifica">
-  
-            <label>ID:</label>
-            <input type="number" name="ID">
-  
-        </div>
-  
         <div class="nome">
   
             <label>Nome:</label>
-            <input type="text" name="nome">
+            <input type="text" name="nome" value="nome">
   
         </div>
   
         <div class="idade">
   
             <label>Idade:</label>
-            <input type="number" name="idade">
+            <input type="number" name="idade" value="idade">
   
         </div>
   
         <div class="lugar_de_origem">
   
             <label>Lugar de Origem</label>
-            <input type="text" name="lugar">
+            <input type="text" name="lugar" value="lugar">
   
         </div>
   
         <div class="descricao">
   
             <label>Descrição:</label>
-            <textarea name="descricao" cols="30" rows="10"></textarea>
+            <textarea name="descricao" cols="30" rows="10" value="descricao"></textarea>
   
         </div>
   
         <div class="botão_inserir">
   
-            <a href="index.html"> <button type="submit">Atualizar</button> </a>
+            <a href="{{ url_for('Index')}}"><button type="submit">Atualizar</button></a>
   
         </div>
   

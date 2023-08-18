@@ -21,10 +21,9 @@ def Index():
 
 
 
-@app.route('/create', methods=['POST', 'GET'])
+@app.route('/create', methods=['GET', 'POST'])
 def create():
     if request.method == 'POST':
-      inde = request.form['ID']
       nome = request.form['name']
       idade = request.form['idade']
       lugar = request.form['lugar']
@@ -38,7 +37,6 @@ def create():
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
    if request.method == 'POST': 
-     inde = request.form['ID']
      nome = request.form['name']
      idade = request.form['idade']
      lugar = request.form['lugar']
