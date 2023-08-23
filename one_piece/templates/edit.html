@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <form>
+    <form action="/edit/" method="POST">
 
         <div class="titulo">
   
@@ -20,28 +20,28 @@
         <div class="nome">
   
             <label>Nome:</label>
-            <input type="text" name="nome" value="nome">
+            <input type="text" name="nome" value="{{ personagens.nome }}">
   
         </div>
   
         <div class="idade">
   
             <label>Idade:</label>
-            <input type="number" name="idade" value="idade">
+            <input type="number" name="idade" value="{{ personagens.idade }}>
   
         </div>
   
-        <div class="lugar_de_origem">
+        <div class="lugar">
   
             <label>Lugar de Origem</label>
-            <input type="text" name="lugar" value="lugar">
+            <input type="text" name="lugar" value="{{ personagens.lugar }}">
   
         </div>
   
         <div class="descricao">
   
             <label>Descrição:</label>
-            <textarea name="descricao" cols="30" rows="10" value="descricao"></textarea>
+            <textarea name="descricao" cols="30" rows="10" value="{{ personagens.descricao }}"></textarea>
   
         </div>
   

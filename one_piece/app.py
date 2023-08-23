@@ -21,7 +21,7 @@ def Index():
 
 
 
-@app.route('/create', methods=['GET', 'POST'])
+@app.route('/create', methods=['POST', 'GET'])
 def create():
     if request.method == 'POST':
       nome = request.form['nome']
@@ -29,27 +29,27 @@ def create():
       lugar = request.form['lugar']
       descricao = request.form['descricao']
       cursor = mysql.connection.cursor()
-      cursor.execute("INSERT INTO personagens (id, nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s, %s)", (id, nome, idade, lugar, descricao))
+      cursor.execute("INSERT INTO personagens (nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s)", (nome, idade, lugar, descricao))
       mysql.connection.commit()
     return render_template('create.html')
     
 
-@app.route('/edit/<nome>', methods=['GET', 'POST'])
-def edit(nome):
+@app.route('/edit/<int:id>', methods=['POST','GET'])
+def edit(id):
    if request.method == 'POST': 
      nome = request.form['nome']
      idade = request.form['idade']
      lugar = request.form['lugar']
      descricao = request.form['descricao']
      cursor = mysql.connection.cursor()
-     cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s", (nome, idade, lugar, descricao))
+     cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s WHERE id=%s", (nome, idade, lugar, descricao, id))
      mysql.connection.commit()
    return render_template('edit.html')
    
 @app.route('/delete/<nome>', methods=['GET'])
-def delete(nome):
+def delete(id):
    cursor = mysql.connection.cursor()
-   cursor.execute("DELETE FROM personagens WHERE nome=%s", (nome,))
+   cursor.execute("DELETE FROM personagens WHERE id=%s", (id,))
    mysql.connection.commit()
    return redirect (url_for('Index'))
 

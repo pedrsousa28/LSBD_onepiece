@@ -50,25 +50,18 @@
 
                         <tr>
                             <th>Nome</th>
+                            <th>Idade</th>
                             <th>Lugar de Origem</th>
                             <th>Descrição</th>
-                            <th>Ação</th>
                         </tr>
 
-                        {% for row in perso %}
+                        {% for row in personagens %}
                         <tr>
 
-                            <td>{{row.0}}</td>
-                            <td>{{row.1}}</td>
-                            <td>{{row.2}}</td>
-                            <td>{{row.3}}</td>
-                            <td>{{row.4}}</td>
-
-                            <td>
-
-                                <a href="/delete/{{row.0}}" class="btn btn-danger btn-xs" onclick="return confirm('Deseja Deletar?')">Deletar</a>
-
-                            </td>
+                            <td>{{ row.nome }}</td>
+                            <td>{{ row.idade }}</td>
+                            <td>{{ row.lugar }}</td>
+                            <td>{{ row.descricao }}</td>
 
                         </tr>
 
