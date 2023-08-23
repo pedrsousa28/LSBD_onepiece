@@ -46,7 +46,7 @@ def edit(id):
      mysql.connection.commit()
    return render_template('edit.html')
    
-@app.route('/delete/<nome>', methods=['GET'])
+@app.route('/delete/<id>', methods=['GET'])
 def delete(id):
    cursor = mysql.connection.cursor()
    cursor.execute("DELETE FROM personagens WHERE id=%s", (id,))
