@@ -3,129 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONE PIECE</title>
+    <title>ONE PIECE PERSONAGENS</title>
     <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="shortcut icon" type="image/ico" href="../static/favicon.ico"/>
 </head>
 <body>
-
-
-    <link rel="stylesheet" href="">
-
- 
-<div class="head">
-    <header>
-        <h1>Personagens de One Piece</h1>
-    </header>
-</div>
-
-<div class="container">
-
-    <div class="coluna">
-
-        <h2>Lista de Personagens</h2>
-
-        {%endfor%}
-        {%endif%}
-        {%endwith%}
-
-                     <tbody class="table">
-
-                        <tr>
-                            <th>Nome</th>
-                            <th>Idade</th>
-                            <th>Lugar de Origem</th>
-                            <th>Descrição</th>
-                        </tr>
-
-                        {% for row in personagens %}
-                        <tr>
-
-                            <td>{{ row.nome }}</td>
-                            <td>{{ row.idade }}</td>
-                            <td>{{ row.lugar }}</td>
-                            <td>{{ row.descricao }}</td>
-
-                        </tr>
-
-                        <div id="modaledit{{row.0}}" class="modal fade" role="dialog">
-
-                            <div class="">
-
-                                <div class="">
-
-                                    <div class="">
-
-                                        <button type="button" class="close">&times;</button>
-
-                                        <h4 class="modal-title">Atualizar</h4>
-
-                                    </div>
-
-                                    <div class="">
-
-                                        <form action="{{url_for('/')}}" methods = "POST">
-
-
-                                             <div class="form-group">
-
-                                                <label>Nome: </label>
-                                                <input type="text" name="id" value="{{row.1}}">
-
-                                                <input type="text" class="" name="name" value="{{row.1}}">
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label>Idade: </label>
-                                                <input type="number" class="form-control" name="idade" value="{{row.2}}">
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label>Lugar: </label>
-                                                <input type="text" class="form-control" name="lugar" value="{{row.3}}">
-
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <label>Descrição: </label>
-
-                                                <textarea name="descricao" class="form-control" cols="30" rows="10" value="{{row.4}}"></textarea>
-
-                                            </div>
-
-                                        </form>
-
-                                    </div>
-
-                                    <div class="r">
-
-                                        <button type="button" class="" data-dismiss="modal">Close</button>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        {% endfor %}
-
-                        </tbody>
-
-                     </table>
-
-            </div>
-
-        </div>
-
+    
+    <div class="head">
+        <header>
+            <h1>Personagens de One Piece</h1>
+        </header>
     </div>
-
-</div>
+    
+    <div class="container">
+    
+        <div class="coluna">
+    
+            <h2>Lista de Personagens</h2> 
+    
+                            <tr>
+                                <th>Nome</th>
+                                <th>Idade</th>
+                                <th>Lugar de Origem</th>
+                                <th>Descrição</th>
+                            </tr>
+    
+                            {% for person in personagem %}
+                            <tr>
+    
+                                <td>{{ personagem.nome }}</td>
+                                <td>{{ personagem.idade }}</td>
+                                <td>{{ personagem.lugar }}</td>
+                                <td>{{ personagem.descricao }}</td>
+    
+                            </tr>
+                            {% endfor %}
+    
+        </div>
+    
+    </div>
 
 </body>
 </html>
