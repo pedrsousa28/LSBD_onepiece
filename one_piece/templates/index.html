@@ -19,25 +19,28 @@
     
         <div class="coluna">
     
-            <h2>Lista de Personagens</h2> 
+            <h2>Lista de Personagens</h2>  
+            <table>
     
-                            <tr>
-                                <th>Nome</th>
-                                <th>Idade</th>
-                                <th>Lugar de Origem</th>
-                                <th>Descrição</th>
-                            </tr>
-    
-                            {% for personagem in perso %}
-                            <tr>
-    
-                                <td>{{ personagem.nome }}</td>
-                                <td>{{ personagem.idade }}</td>
-                                <td>{{ personagem.lugar }}</td>
-                                <td>{{ personagem.descricao }}</td>
-    
-                            </tr>
-                            {% endfor %}
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Lugar de Origem</th>
+                    <th>Descrição</th>
+                </tr>
+
+                {% for personagem in perso %}
+                <tr>
+
+                    <td>{{ personagem[1] }}</td>
+                    <td>{{ personagem[2] }}</td>
+                    <td>{{ personagem[3] }}</td>
+                    <td>{{ personagem[4] }}</td>
+
+                </tr>
+                {% endfor %}
+                
+            </table>
     
         </div>
     
