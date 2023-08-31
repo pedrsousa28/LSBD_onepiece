@@ -47,11 +47,11 @@ def edit(id):
      mysql.connection.commit()
    return render_template('edit.html')
 
-@app.route('/<int:id>', methods=['POST', 'GET'])
-def personagens(id):
+@app.route('/<nome>', methods=['POST', 'GET'])
+def personagens(nome):
    if request.method == 'GET':
      Cursor = mysql.connection.Cursor()
-     Cursor.execute("SELECT * FROM personagens")
+     Cursor.execute("SELECT * FROM personagens WHERE nome=%s", (nome))
      Data=Cursor.fetchall()
      Cursor.close()
    return render_template('persona.html', perso=Data)
