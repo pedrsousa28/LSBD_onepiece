@@ -24,12 +24,12 @@ def Index():
 @app.route('/create', methods=['POST', 'GET'])
 def create():
     if request.method == 'POST':
-      nome = request.form['nome']
-      idade = request.form['idade']
-      lugar = request.form['lugar']
-      descricao = request.form['descricao']
-      cursor = mysql.connection.cursor()
-      cursor.execute("INSERT INTO personagens (nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s)", (nome, idade, lugar, descricao))
+      Nome = request.form['nome']
+      Idade = request.form['idade']
+      Lugar = request.form['lugar']
+      Descricao = request.form['descricao']
+      Cursor = mysql.connection.Cursor()
+      Cursor.execute("INSERT INTO personagens (nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s)", (Nome, Idade, Lugar, Descricao))
       mysql.connection.commit()
     return render_template('create.html', )
     
@@ -37,12 +37,12 @@ def create():
 @app.route('/edit/<int:id>', methods=['POST','GET'])
 def edit(id):
    if request.method == 'POST': 
-     nome = request.form['nome']
-     idade = request.form['idade']
-     lugar = request.form['lugar']
-     descricao = request.form['descricao']
-     cursor = mysql.connection.cursor()
-     cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s WHERE id=%s", (nome, idade, lugar, descricao, id))
+     Nome = request.form['nome']
+     Idade = request.form['idade']
+     Lugar = request.form['lugar']
+     Descricao = request.form['descricao']
+     Cursor = mysql.connection.Cursor()
+     Cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s WHERE id=%s", (Nome, Idade, Lugar, Descricao, id))
      mysql.connection.commit()
    return render_template('edit.html')
    
