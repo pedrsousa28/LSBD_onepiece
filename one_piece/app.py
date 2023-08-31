@@ -46,10 +46,10 @@ def edit(id):
      mysql.connection.commit()
    return render_template('edit.html')
    
-@app.route('/delete/<nome>', methods=['GET'])
-def delete(nome):
+@app.route('/delete/<int:id>', methods=['GET'])
+def delete(id):
    cursor = mysql.connection.cursor()
-   cursor.execute("DELETE FROM personagens WHERE nome=%s", (nome))
+   cursor.execute("DELETE FROM personagens WHERE id=%s", (id))
    mysql.connection.commit()
    return redirect (url_for('Index'))
 

@@ -1,4 +1,4 @@
-Guia de cada página adionada
+Guia de cada página adicionada
 Obs.: algumas páginas podem não ter conteúdo de fato pq eu fiquei inventadno de pegar código pronto no começo, então não me dei tempo de fazer as coisas da forma certa
 
 app.py: back-end do CRUD, basicamente tudo o que o sisteminha teria que fazer tá nele, mas até o momento de entrega só consegui colocar o insert e o delete pra funcionar de fato.
