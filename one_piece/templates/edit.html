@@ -18,35 +18,40 @@
   
         </div> 
 
-  
-        <div class="nome">
-  
-            <label>Nome:</label>
-            <input type="text" name="nome" value="{{ perso[1] }}">
-  
-        </div>
-  
-        <div class="idade">
-  
-            <label>Idade:</label>
-            <input type="number" name="idade" value="{{ perso[2] }}">
-  
-        </div>
-  
-        <div class="lugar">
-  
-            <label>Lugar de Origem</label>
-            <input type="text" name="lugar" value="{{ perso[3] }}">
-  
-        </div>
-  
-        <div class="descricao">
-  
-            <label>Descrição:</label>
-            <textarea name="descricao" cols="30" rows="10" value="">{{ perso[4] }}</textarea>
-  
-        </div>
+        <img src="{{ perso[5] }}" height="120" width="120">
 
+        <label>Foto:<input type="file" name="perfil" multiple="multiple"></label>
+
+            <fieldset>
+                <div class="nome">
+        
+                    <label>Nome:</label>
+                    <input type="text" name="nome" value="{{ perso[1] }}">
+        
+                </div>
+        
+                <div class="idade">
+        
+                    <label>Idade:</label>
+                    <input type="number" name="idade" value="{{ perso[2] }}">
+        
+                </div>
+        
+                <div class="lugar">
+        
+                    <label>Lugar de Origem</label>
+                    <input type="text" name="lugar" value="{{ perso[3] }}">
+        
+                </div>
+        
+                <div class="descricao">
+        
+                    <label>Descrição:</label>
+                    <textarea name="descricao" cols="30" rows="10">{{ perso[4] }}</textarea>
+        
+                </div>
+                
+            </fieldset>
   
         <div class="botão_inserir">
 

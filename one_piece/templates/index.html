@@ -19,10 +19,11 @@
     
         <div class="coluna">
     
-            <h2>Lista de Personagens</h2>  
+            <h2>Lista de Personagens <button> <a href="{{ url_for ('create')}}"></a> ADD</button></h2>  
             <table>
     
                 <tr>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>Idade</th>
                     <th>Lugar de Origem</th>
@@ -32,6 +33,7 @@
                 {% for personagem in perso %}
                 <tr>
 
+                    <td>{{ personagem[0] }}</td>
                     <td>{{ personagem[1] }}</td>
                     <td>{{ personagem[2] }}</td>
                     <td>{{ personagem[3] }}</td>

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, redirect, request, url_for, flash
 from flask_mysqldb import MySQL 
+import os
 
 app = Flask (__name__)
 
@@ -17,7 +18,6 @@ def index():
       cursor = mysql.connection.cursor()
       cursor.execute("SELECT * FROM personagens")
       data=cursor.fetchall()
-      print (data)
       cursor.close()
     return render_template('index.html', perso=data)
 
@@ -30,10 +30,12 @@ def create():
       idade = request.form['idade']
       lugar = request.form['lugar']
       descricao = request.form['descricao']
+      perfil = request.files['perfil']
       cursor = mysql.connection.cursor()
-      cursor.execute("INSERT INTO personagens (nome, idade, lugar, descricao) VALUES (%s, %s, %s, %s)", (nome, idade, lugar, descricao))
+      cursor.execute("INSERT INTO personagens (nome, idade, lugar, descricao, fotoPersonagem) VALUES (%s, %s, %s, %s, %s)", (nome, idade, lugar, descricao, perfil))
       mysql.connection.commit()
-    return render_template('create.html', )
+      return redirect(url_for('index'))
+    return render_template('create.html',)
     
 
 @app.route('/edit/<int:id>', methods=['POST','GET'])
@@ -43,8 +45,9 @@ def edit(id):
      idade = request.form['idade']
      lugar = request.form['lugar']
      descricao = request.form['descricao']
+     perfil = request.files['perfil']
      cursor = mysql.connection.cursor()
-     cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s WHERE id=%s", (nome, idade, lugar, descricao, id))
+     cursor.execute("UPDATE personagens SET nome=%s, idade=%s, lugar=%s, descricao=%s fotoPersonagem=%s WHERE id=%s", (nome, idade, lugar, descricao, perfil, id))
      mysql.connection.commit()
      return redirect (url_for('index'))
    else:  # elif request.method == 'GET'   
